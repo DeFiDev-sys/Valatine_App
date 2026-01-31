@@ -1,4 +1,4 @@
-import FormScreen from "@/screens/FormScreen";
+import FormScreen from "@/screens/formScreen";
 
 import type { Metadata } from "next";
 
