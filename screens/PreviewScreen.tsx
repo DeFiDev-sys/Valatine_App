@@ -5,18 +5,29 @@ import { ArrowLeft, Edit, Heart, Send, Sparkles } from "lucide-react";
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { PostCardStyle, styles } from "@/types/customTypes";
+import { sendMail } from "@/mail/SendMail";
 
 export const PreviewScreen = () => {
   const context = useFormContext();
   const formData = context?.formData;
   const onBack = context?.onBack;
+  const onNext = context?.onNext;
 
   const [selectedStyle, setSelectedStyle] = useState<PostCardStyle>("cute");
 
   const currentStyle = styles[selectedStyle];
 
-  const onSend = () => {
-    console.log("Send");
+  const onSend = async () => {
+    await sendMail({
+      receiverName: formData?.receiverName || "",
+      senderName: formData?.senderName || "",
+      message: formData?.message || "",
+      receiverEmail: formData?.receiverEmail || "",
+      senderEmail: formData?.senderEmail || "",
+      style: currentStyle,
+    });
+
+    await onNext?.();
   };
 
   return (

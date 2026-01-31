@@ -12,16 +12,15 @@ export type FormData = z.infer<typeof formSchema>;
 
 export type PostCardStyle = "cute" | "minimal" | "elegant";
 
-export const styles: Record<
-  PostCardStyle,
-  {
-    name: string;
-    icon: string;
-    bgGradient: string;
-    textColor: string;
-    accentColor: string;
-  }
-> = {
+export type Style = {
+  name: string;
+  icon: string;
+  bgGradient: string;
+  textColor: string;
+  accentColor: string;
+};
+
+export const styles: Record<PostCardStyle, Style> = {
   cute: {
     name: "Cute",
     icon: "🥰",

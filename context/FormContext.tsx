@@ -8,6 +8,7 @@ interface FormContextType {
   formData: FormData | null;
   setFormData: (data: FormData | null) => void;
   onBack: () => void;
+  onNext: () => void;
 }
 
 const FormContext = createContext<FormContextType | undefined>(undefined);
@@ -20,8 +21,12 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     router.back();
   };
 
+  const onNext = () => {
+    router.push("/myVal/success");
+  };
+
   return (
-    <FormContext.Provider value={{ formData, setFormData, onBack }}>
+    <FormContext.Provider value={{ formData, setFormData, onBack, onNext }}>
       {children}
     </FormContext.Provider>
   );
