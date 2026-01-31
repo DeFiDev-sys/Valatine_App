@@ -5,10 +5,6 @@ const nextConfig: NextConfig = {
   experimental: {
     globalNotFound: true,
   },
-  // @ts-ignore - Turbopack root might be a new or internal option mentioned in error logs
-  turbopack: {
-    root: ".",
-  },
 };
 
 export default nextConfig;
