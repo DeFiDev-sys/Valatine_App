@@ -1,5 +1,5 @@
 import React from "react";
-import FormScreen from "@/screens/formScreen";
+import FormScreen from "@/screens/FormScreen";
 
 const page = () => {
   return (
