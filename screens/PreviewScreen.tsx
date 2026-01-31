@@ -1,13 +1,14 @@
 "use client";
 
 import { useFormContext } from "@/context/FormContext";
-import { ArrowLeft, Edit, Heart, Send, Sparkles } from "lucide-react";
+import { ArrowLeft, Edit, Heart, Loader2, Send, Sparkles } from "lucide-react";
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { PostCardStyle, styles } from "@/types/customTypes";
 import { sendMail } from "@/mail/SendMail";
 
 export const PreviewScreen = () => {
+  const [isloading, setIsLoading] = useState(false);
   const context = useFormContext();
   const formData = context?.formData;
   const onBack = context?.onBack;
@@ -18,6 +19,7 @@ export const PreviewScreen = () => {
   const currentStyle = styles[selectedStyle];
 
   const onSend = async () => {
+    setIsLoading(true);
     await sendMail({
       receiverName: formData?.receiverName || "",
       senderName: formData?.senderName || "",
@@ -215,9 +217,14 @@ export const PreviewScreen = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onSend}
+              disabled={isloading}
               className="w-full py-5 bg-linear-to-r from-red-500 via-pink-500 to-red-500 text-white rounded-2xl shadow-2xl hover:shadow-3xl transition-shadow flex items-center justify-center gap-3 text-xl font-semibold group"
             >
-              <Send className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              {isloading ? (
+                <Loader2 className="w-6 h-6 animate-spin" />
+              ) : (
+                <Send className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              )}
               Send Postcard via Email
               <motion.span
                 animate={{ rotate: [0, 10, -10, 0] }}
