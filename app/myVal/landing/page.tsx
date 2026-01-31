@@ -1,13 +1,9 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 
-import Loading from "@/components/Loading";
-const LandingScreen = lazy(() => import("../../../screens/LandingScreen"));
+import LandingScreen from "@/screens/LandingScreen";
+
 const page = () => {
-  return (
-    <Suspense fallback={<Loading />}>
-      <LandingScreen />
-    </Suspense>
-  );
+  return <LandingScreen />;
 };
 
 export default page;
