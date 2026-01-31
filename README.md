@@ -1,37 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💝 My Valentine - Digital Postcard Creator
 
-## Getting Started
+A premium, modern web application designed to help you spread love. Create and send beautiful, personalized Valentine's Day postcards to your special someone with just a few clicks.
 
-First, run the development server:
+![My Valentine OG Image](./public/og-image.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Personalized Postcards**: Enter your message, sender, and receiver details.
+- **Dynamic Themes**: Choose from three premium, animated styles:
+  - 🥰 **Cute**: Vibrant pinks and hearts.
+  - ✨ **Elegant**: Minimalist purple and rose tones.
+  - 🤍 **Minimal**: Clean, modern aesthetics.
+- **Smart Emailing**: Sends personalized HTML emails directly to recipients using **SendGrid**.
+- **Premium UI**: Built with **Framer Motion** for smooth, delightful interactions and transitions.
+- **Mobile First**: Fully responsive design that looks stunning on any device.
+- **SEO Optimized**: Custom metadata and high-quality Open Graph images for perfect social sharing.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescript.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://motion.dev/)
+- **Email Service**: [SendGrid](https://sendgrid.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Forms**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
 
-## Learn More
+## 🛠️ Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js 18.x or later
+- A SendGrid Account (for email delivery)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. **Clone the repository**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/your-username/my-valentine.git
+   cd my-valentine/client
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# Valatine_App
+2. **Install dependencies**:
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up Environment Variables**:
+   Create a `.env` file in the `client` directory and add your SendGrid credentials:
+
+   ```env
+   SENDGRID_API_KEY='your_sendgrid_api_key'
+   SENDGRID_VERIFIED_SENDER='your_verified_sender_email@example.com'
+   ```
+
+4. **Run the development server**:
+
+   ```bash
+   pnpm run dev
+   ```
+
+5. **Open the app**:
+   Navigate to [http://localhost:3000](http://localhost:3000) (or the port shown in your terminal).
+
+## 💌 Sending Emails
+
+To enable the email feature, ensure:
+
+1. You have a valid **SendGrid API Key**.
+2. The `SENDGRID_VERIFIED_SENDER` matches a verified identity in your [SendGrid Sender Authentication](https://app.sendgrid.com/settings/sender_auth) settings.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with ❤️ by Juwon
