@@ -9,3 +9,38 @@ export const formSchema = z.object({
 });
 
 export type FormData = z.infer<typeof formSchema>;
+
+export type PostCardStyle = "cute" | "minimal" | "elegant";
+
+export const styles: Record<
+  PostCardStyle,
+  {
+    name: string;
+    icon: string;
+    bgGradient: string;
+    textColor: string;
+    accentColor: string;
+  }
+> = {
+  cute: {
+    name: "Cute",
+    icon: "🥰",
+    bgGradient: "from-pink-100 via-pink-200 to-red-200",
+    textColor: "text-pink-900",
+    accentColor: "text-red-500",
+  },
+  elegant: {
+    name: "Elegant",
+    icon: "✨",
+    bgGradient: "from-purple-100 via-pink-50 to-rose-100",
+    textColor: "text-gray-800",
+    accentColor: "text-purple-600",
+  },
+  minimal: {
+    name: "Minimal",
+    icon: "🤍",
+    bgGradient: "from-gray-50 via-white to-gray-100",
+    textColor: "text-gray-900",
+    accentColor: "text-gray-600",
+  },
+};

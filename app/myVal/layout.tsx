@@ -9,7 +9,11 @@ export default function LandingLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className={`m-0 p-0`} suppressHydrationWarning>
+    <main
+      className={`m-0 p-0`}
+      suppressHydrationWarning
+      suppressContentEditableWarning
+    >
       <div className="min-h-screen relative overflow-hidden bg-linear-to-br from-pink-50 via-red-50 to-purple-50">
         {/* Floating Hearts Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

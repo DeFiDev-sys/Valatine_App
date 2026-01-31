@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { FormProvider } from "@/context/FormContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning suppressContentEditableWarning>
-      <body className={`m-0 p-0`}>{children}</body>
+      <body className={`m-0 p-0`}>
+        <FormProvider>{children}</FormProvider>
+      </body>
     </html>
   );
 }

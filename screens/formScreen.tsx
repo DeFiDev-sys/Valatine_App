@@ -16,11 +16,14 @@ import { Input } from "@/components/ui/input";
 import { InputGroup, InputGroupTextarea } from "@/components/ui/input-group";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
+import { useFormContext } from "@/context/FormContext";
+
 const formScreen = () => {
   const router: AppRouterInstance = useRouter();
-  const onBack = () => {
-    router.back();
-  };
+  const context = useFormContext();
+  const setFormData = context?.setFormData;
+  const onBack = context?.onBack;
+
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,14 +36,8 @@ const formScreen = () => {
   });
   const handleOnSubmit = async (data: FormData) => {
     try {
-      console.log(data);
-      await form.reset({
-        senderEmail: "",
-        senderName: "",
-        receiverEmail: "",
-        receiverName: "",
-        message: "",
-      });
+      setFormData?.(data);
+      await router.push("/myVal/preview");
     } catch (error: any) {
       console.log(error?.message);
     }
