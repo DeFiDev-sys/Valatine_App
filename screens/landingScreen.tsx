@@ -59,7 +59,7 @@ const LandingScreen = () => {
       </motion.p>
 
       {/* Button for the form */}
-      <Link href="/form">
+      <Link href="/myVal/form">
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
