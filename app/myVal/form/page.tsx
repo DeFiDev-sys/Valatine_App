@@ -1,4 +1,3 @@
-import React from "react";
 import FormScreen from "@/screens/FormScreen";
 
 import type { Metadata } from "next";

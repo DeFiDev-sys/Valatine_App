@@ -1,6 +1,4 @@
-import React from "react";
-
-import LandingScreen from "@/screens/LandingScreen";
+import LandingScreen from "@/screens/landingScreen";
 
 const page = () => {
   return <LandingScreen />;
