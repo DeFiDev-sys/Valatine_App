@@ -18,7 +18,7 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 
 import { useFormContext } from "@/context/FormContext";
 
-const formScreen = () => {
+const FormScreen = () => {
   const router: AppRouterInstance = useRouter();
   const context = useFormContext();
   const setFormData = context?.setFormData;
@@ -276,4 +276,4 @@ const formScreen = () => {
   );
 };
 
-export default formScreen;
+export default FormScreen;
