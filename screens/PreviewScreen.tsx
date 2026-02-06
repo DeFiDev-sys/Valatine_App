@@ -3,6 +3,7 @@
 import { useFormContext } from "@/context/FormContext";
 import { ArrowLeft, Edit, Heart, Loader2, Send, Sparkles } from "lucide-react";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import { PostCardStyle, styles } from "@/types/customTypes";
 import { sendMail } from "@/mail/SendMail";
@@ -12,15 +13,15 @@ export const PreviewScreen = () => {
   const context = useFormContext();
   const formData = context?.formData;
   const onBack = context?.onBack;
-  const onNext = context?.onNext;
 
   const [selectedStyle, setSelectedStyle] = useState<PostCardStyle>("cute");
 
   const currentStyle = styles[selectedStyle];
 
+  const router = useRouter();
   const onSend = async () => {
     setIsLoading(true);
-    await sendMail({
+    const result = await sendMail({
       receiverName: formData?.receiverName || "",
       senderName: formData?.senderName || "",
       message: formData?.message || "",
@@ -29,7 +30,15 @@ export const PreviewScreen = () => {
       style: currentStyle,
     });
 
-    await onNext?.();
+    if (result?.success) {
+      router.push("/myVal/success");
+    } else {
+      alert(
+        "Oops! " + (result?.error || "Something went wrong. Please try again."),
+      );
+      router.push("/myVal/form");
+    }
+    setIsLoading(false);
   };
 
   return (

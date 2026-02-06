@@ -30,12 +30,18 @@ export const sendMail = async ({
     subject: "Happy Valentine's Day",
     html: MailTemplate({ receiverName, senderName, message, style }),
   };
-  await sgMail
-    .send(msg)
-    .then(() => {
-      console.log("Mail sent successfully");
-    })
-    .catch((error) => {
-      console.error("SendGrid Error:", error.response?.body || error);
-    });
+
+  try {
+    await sgMail.send(msg);
+    console.log("Mail sent successfully");
+    return { success: true };
+  } catch (error: any) {
+    console.error("SendGrid Error:", error.response?.body || error);
+    return {
+      success: false,
+      error:
+        error.response?.body?.errors?.[0]?.message ||
+        "Failed to send email. Please check your connection.",
+    };
+  }
 };
