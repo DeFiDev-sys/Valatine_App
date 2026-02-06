@@ -132,7 +132,7 @@ export const MailTemplate = ({
             <div class="message-box">
                 <p style="color: ${textColor}; font-size: 22px; margin-bottom: 20px; font-family: serif;">Hi ${receiverName},</p>
                 <p class="message-text" style="color: ${textColor}; font-size: 22px; line-height: 1.6; margin-bottom: 30px; font-family: serif;">${message}</p>
-                <p style="color: ${textColor}; font-size: 20px; margin-bottom: 10px; opacity: 0.8; font-family: serif;">With all my love,</p>
+                <p style="color: ${textColor}; font-size: 20px; margin-bottom: 10px; opacity: 0.8; font-family: serif;">With all my Heart❤️,</p>
                 <p class="signature" style="color: ${accentColor}; font-size: 28px; font-weight: 700; margin: 0; font-family: serif;">${senderName}</p>
             </div>
         </div>
